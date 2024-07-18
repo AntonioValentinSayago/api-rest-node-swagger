@@ -14,5 +14,8 @@
     "mysql": "^2.18.1",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/mysql": "^2.15.26"
   }
 }
