@@ -1,15 +1,21 @@
-import mysql from 'mysql';
+import mysql from 'mysql2';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '123456789',
-    database: 'rets_db'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 });
 
 connection.connect(error => {
-    if (error) throw error;
+    if (error) {
+        console.error('Error connecting to the database:', error);
+        return;
+    }
     console.log('Successfully connected to the database.');
 });
 
-module.exports = connection;
+export default connection;
