@@ -25,15 +25,6 @@ Para ejecutar este proyecto, necesitas tener instalados los siguientes requisito
 ```bash
 git clone https://github.com/tu-usuario/tu-repositorio.git
 cd tu-repositorio
-npm install
-```bash
 
 
 
-### Notas
-
-1. **Imagen del Proyecto**: Asegúrate de tener una imagen del proyecto en la carpeta `media` con el nombre `proyecto-visual.png`. Si no tienes esta carpeta, puedes crearla y agregar la imagen.
-2. **Variables de Entorno**: Recuerda actualizar `DB_USER`, `DB_PASSWORD`, y cualquier otra configuración en el archivo `.env` según tu entorno.
-3. **Contribuciones**: La sección de contribuciones es opcional pero útil si esperas colaboraciones en tu proyecto.
-
-Este `README.md` proporciona una guía completa para cualquier persona que desee clonar y ejecutar tu proyecto.
