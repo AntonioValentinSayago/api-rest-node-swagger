@@ -25,6 +25,9 @@ Para ejecutar este proyecto, necesitas tener instalados los siguientes requisito
 ```bash
 git clone https://github.com/tu-usuario/tu-repositorio.git
 cd tu-repositorio
+```
 
-
-
+### 2. Instalar Dependencias
+```bash
+npm install
+```
