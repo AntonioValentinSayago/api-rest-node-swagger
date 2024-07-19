@@ -26,6 +26,8 @@ Para ejecutar este proyecto, necesitas tener instalados los siguientes requisito
 git clone https://github.com/tu-usuario/tu-repositorio.git
 cd tu-repositorio
 npm install
+```bash
+
 
 
 ### Notas
