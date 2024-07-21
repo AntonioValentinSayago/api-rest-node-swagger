@@ -31,3 +31,18 @@ cd tu-repositorio
 ```bash
 npm install
 ```
+
+### 3. Configurar la Base de Datos
+Asegúrate de tener MySQL instalado y corriendo. Luego, crea una base de datos y configura las credenciales en un archivo .env.
+```bash
+CREATE DATABASE rets_db;
+USE rets_db;
+CREATE TABLE properties (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    address VARCHAR(255) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    bedrooms INT NOT NULL,
+    bathrooms INT NOT NULL,
+    listing_date DATE NOT NULL
+);
+```
