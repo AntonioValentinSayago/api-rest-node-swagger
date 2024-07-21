@@ -63,3 +63,9 @@ INSERT INTO properties (address, price, bedrooms, bathrooms, listing_date) VALUE
 ('123 Main St, Anytown, USA', 250000.00, 3, 2, '2023-01-15'),
 ('456 Oak St, Othertown, USA', 320000.00, 4, 3, '2023-02-20');
 ```
+
+### 5. Ejecutar el Proyecto
+```bash
+npm start
+
+```
