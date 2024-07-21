@@ -22,7 +22,7 @@ const swaggerOptions = {
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
-// * Definición de las rutas
+// Definición de las rutas GET
 /**
  * @swagger
  * /properties:
@@ -58,9 +58,17 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
  *                     format: date
  *                     example: "2023-01-15"
  */
+app.get('/properties', (req, res) => {
+    db.query('SELECT * FROM properties', (err, results) => {
+        if (err) {
+            res.status(500).json({ error: 'Error fetching data from the database' });
+        } else {
+            res.json(results);
+        }
+    });
+});
 
-
-
+// Definición de las rutas POST
 /**
  * @swagger
  * /properties:
