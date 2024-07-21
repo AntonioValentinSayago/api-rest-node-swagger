@@ -6,7 +6,7 @@ Real Estate Transaction Standard API (RETS API) es un proyecto que proporciona u
 
 El objetivo del proyecto es facilitar la gestión de datos inmobiliarios mediante una API RESTful. Los usuarios pueden acceder a la documentación de la API a través de Swagger, lo que facilita la comprensión y el uso de los endpoints disponibles.
 
-![Imagen del Proyecto](media/proyecto-visual.png)
+![Demo Version 1.0](src/assets/demo.png)
 
 ## Requisitos del Proyecto
 
