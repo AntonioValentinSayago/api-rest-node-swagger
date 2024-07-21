@@ -69,6 +69,47 @@ app.get('/properties', (req, res) => {
     });
 });
 
+/**
+ * @swagger
+ * /properties:
+ *   post:
+ *     summary: Add a new property
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               address:
+ *                 type: string
+ *                 example: "789 Pine St, Sometown, USA"
+ *               price:
+ *                 type: number
+ *                 example: 275000.00
+ *               bedrooms:
+ *                 type: integer
+ *                 example: 3
+ *               bathrooms:
+ *                 type: integer
+ *                 example: 2
+ *               listing_date:
+ *                 type: string
+ *                 format: date
+ *                 example: "2023-03-10"
+ *     responses:
+ *       201:
+ *         description: Property created
+ */
+app.post('/properties', (req, res) => {
+    const { address, price, bedrooms, bathrooms, listing_date } = req.body;
+    const query = 'INSERT INTO properties (address, price, bedrooms, bathrooms, listing_date) VALUES (?, ?, ?, ?, ?)';
+    db.query(query, [address, price, bedrooms, bathrooms, listing_date], (err, results) => {
+        if (err) throw err;
+        res.status(201).json({ id: results.insertId, ...req.body });
+    });
+});
+
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
 });
