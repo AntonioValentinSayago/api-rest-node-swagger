@@ -23,7 +23,7 @@ Para ejecutar este proyecto, necesitas tener instalados los siguientes requisito
 ### 1. Clonar el Repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/tu-repositorio.git
+git clone https://github.com/AntonioValentinSayago/api-rest-node-swagger
 cd tu-repositorio
 ```
 
@@ -45,4 +45,21 @@ CREATE TABLE properties (
     bathrooms INT NOT NULL,
     listing_date DATE NOT NULL
 );
+```
+Configurar Variables de Entorno
+
+Crea un archivo .env en la raíz del proyecto con el siguiente contenido:
+```bash
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=tu_password
+DB_NAME=rets_db
+
+```
+### 4. Insertar Datos de Ejemplo
+Ejecuta las siguientes instrucciones SQL para insertar datos de ejemplo en la tabla properties:
+```bash
+INSERT INTO properties (address, price, bedrooms, bathrooms, listing_date) VALUES
+('123 Main St, Anytown, USA', 250000.00, 3, 2, '2023-01-15'),
+('456 Oak St, Othertown, USA', 320000.00, 4, 3, '2023-02-20');
 ```
