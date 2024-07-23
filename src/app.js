@@ -110,6 +110,46 @@ app.post('/properties', (req, res) => {
     });
 });
 
+/**
+ * @swagger
+ * /properties/{id}:
+ *   put:
+ *     summary: Update an existing property
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: The property ID
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               address:
+ *                 type: string
+ *                 example: "789 Pine St, Sometown, USA"
+ *               price:
+ *                 type: number
+ *                 example: 275000.00
+ *               bedrooms:
+ *                 type: integer
+ *                 example: 3
+ *               bathrooms:
+ *                 type: integer
+ *                 example: 2
+ *               listing_date:
+ *                 type: string
+ *                 format: date
+ *                 example: "2023-03-10"
+ *     responses:
+ *       200:
+ *         description: Property updated
+ */
+
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
 });
