@@ -22,6 +22,10 @@ const swaggerOptions = {
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+});
+
 // Definición de las rutas GET
 /**
  * @swagger
@@ -162,10 +166,6 @@ app.put('/properties/:id', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log('Server is running on port 3000');
-});
-
 /**
  * @swagger
  * /properties/{id}:
@@ -218,6 +218,38 @@ app.patch('/properties/:id', (req, res) => {
             return res.status(404).json({ message: 'Property not found' });
         }
         res.status(200).json({ id, ...updates });
+    });
+});
+
+/**
+ * @swagger
+ * /properties/{id}:
+ *   delete:
+ *     summary: Delete a property
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: The property ID
+ *     responses:
+ *       200:
+ *         description: Property deleted
+ *       404:
+ *         description: Property not found
+ */
+
+app.delete('/properties/:id', (req, res) => {
+    const { id } = req.params;
+    const query = 'DELETE FROM properties WHERE id = ?';
+
+    db.query(query, [id], (err, results) => {
+        if (err) throw err;
+        if (results.affectedRows === 0) {
+            return res.status(404).json({ message: 'Property not found' });
+        }
+        res.status(200).json({ message: 'Property deleted' });
     });
 });
 export default app;
