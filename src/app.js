@@ -149,6 +149,18 @@ app.post('/properties', (req, res) => {
  *       200:
  *         description: Property updated
  */
+app.put('/properties/:id', (req, res) => {
+    const { id } = req.params;
+    const { address, price, bedrooms, bathrooms, listing_date } = req.body;
+    const query = 'UPDATE properties SET address = ?, price = ?, bedrooms = ?, bathrooms = ?, listing_date = ? WHERE id = ?';
+    db.query(query, [address, price, bedrooms, bathrooms, listing_date, id], (err, results) => {
+        if (err) throw err;
+        if (results.affectedRows === 0) {
+            return res.status(404).json({ message: 'Property not found' });
+        }
+        res.status(200).json({ id, address, price, bedrooms, bathrooms, listing_date });
+    });
+});
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
