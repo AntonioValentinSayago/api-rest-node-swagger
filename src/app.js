@@ -205,5 +205,19 @@ app.listen(3000, () => {
  *       200:
  *         description: Property updated
  */
+app.patch('/properties/:id', (req, res) => {
+    const { id } = req.params;
+    const updates = req.body;
+    const fields = Object.keys(updates).map(field => `${field} = ?`).join(', ');
+    const values = Object.values(updates);
+    const query = `UPDATE properties SET ${fields} WHERE id = ?`;
 
+    db.query(query, [...values, id], (err, results) => {
+        if (err) throw err;
+        if (results.affectedRows === 0) {
+            return res.status(404).json({ message: 'Property not found' });
+        }
+        res.status(200).json({ id, ...updates });
+    });
+});
 export default app;
