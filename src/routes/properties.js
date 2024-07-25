@@ -39,3 +39,12 @@ const router = express.Router();
  *                     format: date
  *                     example: "2023-01-15"
  */
+app.get('/properties', (req, res) => {
+    db.query('SELECT * FROM properties', (err, results) => {
+        if (err) {
+            res.status(500).json({ error: 'Error fetching data from the database' });
+        } else {
+            res.json(results);
+        }
+    });
+});
