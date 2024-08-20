@@ -1,4 +1,4 @@
-# RETS API  - Hospital General 1.0.
+# RETS API  - Hospital General 1.0.1
 
 Real Estate Transaction Standard API (RETS API) es un proyecto que proporciona una interfaz para interactuar con una base de datos de propiedades inmobiliarias. Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en una base de datos MySQL a través de una API RESTful construida con Node.js y Express, y documentada con Swagger.
 
